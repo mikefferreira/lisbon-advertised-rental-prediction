@@ -1,0 +1,26 @@
+# --- Dados e Modelos (Confidencialidade e Performance) ---
+data/
+models/
+catboost_info/
+*.xlsx
+*.csv
+*.pkl
+*.sqlite
+*.zip
+
+# --- Python e Ambientes Virtuais ---
+__pycache__/
+.ipynb_checkpoints/
+.env
+.venv/
+env/
+venv/
+*.log
+
+# --- VS Code e IDEs ---
+.vscode/
+.idea/
+
+# --- Sistema ---
+.DS_Store
+Thumbs.db
