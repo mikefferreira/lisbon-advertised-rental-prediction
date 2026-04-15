@@ -1,10 +1,9 @@
 # --- Dados e Modelos (Confidencialidade e Performance) ---
 data/
-models/
-catboost_info/
+# models/  <-- Se quiseres o simulador no Streamlit Cloud, comenta esta linha
 *.xlsx
 *.csv
-*.pkl
+# *.pkl    <-- Se o modelo for essencial para o app, comenta esta linha
 *.sqlite
 *.zip
 

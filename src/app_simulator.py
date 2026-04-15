@@ -8,6 +8,10 @@ from streamlit_folium import st_folium
 import json
 import unicodedata
 import branca.colormap as cm # Biblioteca para escalas de cores avançadas
+from pathlib import Path
+
+BASE_DIR = Path(__file__).resolve().parent.parent
+MODELS_DIR = BASE_DIR / 'models'
 
 warnings.filterwarnings('ignore')
 
@@ -70,9 +74,10 @@ st.markdown("""
 # ==========================================
 @st.cache_resource
 def load_system():
-    modelo = joblib.load('augmented_lightgbm_model.pkl')
-    dados = pd.read_pickle('X_test_aug.pkl')
-    dicionario = joblib.load('dicionario_freguesias.pkl')
+    # Usa o MODELS_DIR que definimos acima
+    modelo = joblib.load(MODELS_DIR / 'augmented_lightgbm_model.pkl')
+    dados = pd.read_pickle(MODELS_DIR / 'X_test_aug.pkl')
+    dicionario = joblib.load(MODELS_DIR / 'dicionario_freguesias.pkl')
     return modelo, dados, dicionario
 
 lgbm_final, X_test_aug, freguesias_dict = load_system()
@@ -226,7 +231,9 @@ df_mapa = pd.DataFrame({
 df_mapa['Chave_Match'] = df_mapa['Freguesia_Original'].apply(padronizar_nome)
 
 # 6. Carregar o GeoJSON original e preparar os Tooltips
-with open('lisboa_poligonos_caop.geojson', 'r', encoding='utf-8') as f:
+geojson_path = BASE_DIR / 'data' / 'processed' / 'lisboa_poligonos_caop.geojson'
+
+with open(geojson_path, 'r', encoding='utf-8') as f:
     mapa_geojson = json.load(f)
 
 # Criar um dicionário para busca rápida de tooltips
