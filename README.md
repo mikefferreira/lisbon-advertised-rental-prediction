@@ -1,6 +1,6 @@
-# 🏠 Lisbon Advertised Rental Market Prediction: An Augmented Approach
+# Lisbon Advertised Rental Market Prediction: An Augmented Approach
 
-Este repositório contém a infraestrutura de dados e modelos da minha tese de mestrado em **Data Science na NOVA IMS**
+Este repositório contém a infraestrutura de dados e modelos da tese.
 
 ## Objetivo do Projeto
 Prever o preço médio de arrendamento por $m^2$ nas freguesias de Lisboa através de um modelo **Augmented**. A inovação reside na integração de fontes heterogéneas:
